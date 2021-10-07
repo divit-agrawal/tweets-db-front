@@ -1,0 +1,59 @@
+/* ./src/index.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: SemiBold, sans-serif;
+}
+.Home {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+.head {
+  padding-top: 10vw;
+  font-weight: 500;
+  font-size: max(2.75rem, 4.17vw);
+  text-align: center;
+}
+.search-bar {
+  padding: 2px 20vw;
+}
+@media (max-width: 600px) {
+  .search-bar {
+    padding: 2px 2vw;
+  }
+}
+:root {
+  --cardWidth: 240px;
+  --cardHeight: 280px;
+  --cardMargin: 16px;
+}
+
+body {
+  font-family: Helvetica;
+}
+
+.main-section {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+
+  /* background: #bbb; */
+}
+.card {
+  width: 25vw;
+  height: var(--cardHeight);
+  margin: var(--cardMargin);
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background: #fff;
+  box-sizing: border-box;
+}
+@media (max-width: 1000px)
+{
+ .card{
+  width: var(--cardWidth);
+ }
+}
