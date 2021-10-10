@@ -31,13 +31,13 @@ export default function Home() {
           </a>
         </p>
       </div>
-      <section class="main-section">
+      <section className="main-section">
         {[...Array(9)].map((e, i) => (
           <TweetCard />
         ))}
       </section>
       <div className="popular-hashtags">
-        <section class="main-section">
+        <section className="main-section">
           {[...Array(23)].map((e, i) => (
             <Capsule />
           ))}

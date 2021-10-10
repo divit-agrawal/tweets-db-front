@@ -46,7 +46,7 @@ export default function Topics() {
             </ul>
           </div>
         </div>
-        <section class="main-section">
+        <section className="main-section">
           {[...Array(9)].map((e, i) => (
             <TweetCard />
           ))}
