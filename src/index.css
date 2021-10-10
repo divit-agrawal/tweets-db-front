@@ -102,3 +102,28 @@ body {
 .popular-hashtags {
   padding: 0px 5vw;
 }
+.footer {
+  background-color: black;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+}
+.footer-top {
+  display: flex;
+  flex-direction: row;
+  height: 150px;
+  padding: 0px 15vw;
+}
+.footer-top-x {
+  width: 33.3vw;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  margin-top: 70px;
+  
+}
+.footer-bottom-a{
+  text-align: center;
+  align-items: center;
+  padding: 16px;
+}

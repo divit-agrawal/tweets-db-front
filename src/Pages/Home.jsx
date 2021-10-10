@@ -38,7 +38,7 @@ export default function Home() {
       </section>
       <div className="popular-hashtags">
         <section class="main-section">
-          {[...Array(20)].map((e, i) => (
+          {[...Array(23)].map((e, i) => (
             <Capsule />
           ))}
         </section>
