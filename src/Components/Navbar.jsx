@@ -15,7 +15,7 @@ function classNames(...classes) {
 
 export default function Navbar() {
   return (
-    <div style={{ position: "sticky" }}>
+    <div style={{ position: "fixed", width: "100vw", zIndex: "2" }}>
       <Disclosure as="nav" className="bg-gray-800">
         {({ open }) => (
           <>

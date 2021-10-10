@@ -20,40 +20,85 @@ body {
 .search-bar {
   padding: 2px 20vw;
 }
+.eg-search {
+  margin-left: 20vw;
+  padding-left: 1rem;
+}
 @media (max-width: 600px) {
   .search-bar {
     padding: 2px 2vw;
   }
+  .eg-search {
+    margin-left: 2vw;
+  }
 }
+
 :root {
   --cardWidth: 240px;
   --cardHeight: 280px;
   --cardMargin: 16px;
 }
 
-body {
-  font-family: Helvetica;
-}
-
 .main-section {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-
-  /* background: #bbb; */
 }
 .card {
   width: 25vw;
-  height: var(--cardHeight);
+  /* height: var(--cardHeight); */
   margin: var(--cardMargin);
-  border: 1px solid #ccc;
-  border-radius: 8px;
+  border: 1px #ccc;
+  border-radius: 12px;
   background: #fff;
   box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  padding: 40px;
 }
-@media (max-width: 1000px)
-{
- .card{
-  width: var(--cardWidth);
- }
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+@media (max-width: 1000px) {
+  .card {
+    width: var(--cardWidth);
+  }
+}
+.card-head {
+  display: flex;
+  flex-direction: row;
+  height: 50px;
+}
+.profile-pic img {
+  max-width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 50%;
+}
+.profile-details {
+  display: flex;
+  flex-direction: column;
+  padding: 0px 8px;
+}
+.profile-name {
+  height: 25px;
+}
+.profile-tw-id {
+  height: 15px;
+}
+.card-body-text {
+  padding: 12px 0px;
+}
+.capsule {
+  width: fit-content;
+  margin: 4px 8px;
+  padding: 4px;
+  border-radius: 16px;
+  text-align: center;
+  border: 1px solid black;
+  box-sizing: border-box;
+}
+.popular-hashtags {
+  padding: 0px 5vw;
 }

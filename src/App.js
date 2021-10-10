@@ -10,6 +10,7 @@ function App() {
     <Router>
       <div className="App">
         <Navbar />
+        <div className="top-padding"></div>
         <Switch>
           <Route path="/" exact component={Home} />
           <Route path="/topics" exact component={Topics} />

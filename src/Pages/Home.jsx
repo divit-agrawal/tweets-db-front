@@ -1,6 +1,8 @@
 import React from "react";
-import Navbar from "../Components/Navbar";
 import "../index";
+import SearchBar from "../Components/SearchBar";
+import TweetCard from "../Components/TweetCard";
+import Capsule from "../Components/Capsule";
 
 export default function Home() {
   return (
@@ -8,36 +10,39 @@ export default function Home() {
       <div>
         <h1 className="head">Discover Best Tweets</h1>
       </div>
-      <div className="search-bar">
-        <div class="p-8">
-          <div class="bg-white flex items-center rounded shadow-xl">
-            <input
-              class="rounded-l-full w-full py-4 px-6 text-gray-700 leading-tight focus:outline-none"
-              id="search"
-              type="text"
-              placeholder="Search"
-            />
-
-            <div class="p-4">
-              <button class="bg-blue-500 text-white rounded p-2 hover:bg-blue-400 focus:outline-none w-12 h-12 flex items-center justify-center">
-                icon
-              </button>
-            </div>
-          </div>
-        </div>
+      <SearchBar />
+      <div className="eg-search">
+        <p>
+          Try{" "}
+          <a href="#">
+            <u>Bitcoin</u>
+          </a>
+          ,{" "}
+          <a href="#">
+            <u>Trump</u>
+          </a>
+          ,{" "}
+          <a href="#">
+            <u>Startup</u>
+          </a>
+          ,{" "}
+          <a href="#">
+            <u>SpaceX</u>
+          </a>
+        </p>
       </div>
       <section class="main-section">
-        {/* <div class="card"></div>
-        <div class="card"></div>
-        <div class="card"></div>
-        <div class="card"></div>
-        <div class="card"></div>
-        <div class="card"></div>
-        <div class="card"></div> */}
         {[...Array(9)].map((e, i) => (
-          <div class="card"></div>
+          <TweetCard />
         ))}
       </section>
+      <div className="popular-hashtags">
+        <section class="main-section">
+          {[...Array(20)].map((e, i) => (
+            <Capsule />
+          ))}
+        </section>
+      </div>
     </div>
   );
 }
