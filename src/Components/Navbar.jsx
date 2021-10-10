@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 const navigation = [
   { name: "Discover", to: "/", current: true },
-  { name: "Topics", to: "/topics", current: false },
+  { name: "Topics", to: "/topics", current: true },
   // { name: "Premium", to: "#", current: false },
 ];
 
@@ -16,14 +16,14 @@ function classNames(...classes) {
 export default function Navbar() {
   return (
     <div style={{ position: "fixed", width: "100vw", zIndex: "2" }}>
-      <Disclosure as="nav" className="bg-gray-800">
+      <Disclosure as="nav" className="bg-white shadow-lg">
         {({ open }) => (
           <>
             <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
               <div className="relative flex items-center justify-between h-16">
                 <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
                   {/* Mobile menu button*/}
-                  <Disclosure.Button className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
+                  <Disclosure.Button className="inline-flex items-center justify-center p-2 rounded-md text-black">
                     <span className="sr-only">Open main menu</span>
                     {open ? (
                       <XIcon className="block h-6 w-6" aria-hidden="true" />
@@ -69,13 +69,22 @@ export default function Navbar() {
                   {/* Profile dropdown */}
                   <Menu as="div" className="ml-3 relative">
                     <div>
-                      <Menu.Button className="bg-gray-800 flex text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
+                      <Menu.Button className="bg-white flex text-sm rounded-full focus:outline-none  ">
                         <span className="sr-only">Open user menu</span>
-                        <img
-                          className="h-8 w-8 rounded-full"
-                          src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                          alt=""
-                        />
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          class="h-6 w-6"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                        >
+                          <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
+                          />
+                        </svg>
                       </Menu.Button>
                     </div>
                     <Transition
@@ -97,11 +106,11 @@ export default function Navbar() {
                                 "block px-4 py-2 text-sm text-gray-700"
                               )}
                             >
-                              Your Profile
+                              Log In
                             </a>
                           )}
                         </Menu.Item>
-                        <Menu.Item>
+                        {/* <Menu.Item>
                           {({ active }) => (
                             <a
                               href="#/"
@@ -113,7 +122,7 @@ export default function Navbar() {
                               Sign out
                             </a>
                           )}
-                        </Menu.Item>
+                        </Menu.Item> */}
                       </Menu.Items>
                     </Transition>
                   </Menu>

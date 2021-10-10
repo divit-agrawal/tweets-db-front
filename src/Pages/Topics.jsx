@@ -1,6 +1,7 @@
 import React from "react";
 import SearchBar from "../Components/SearchBar";
 import TweetCard from "../Components/TweetCard";
+import DropDown from "../Components/DropDown";
 
 export default function Topics() {
   return (
@@ -14,22 +15,61 @@ export default function Topics() {
           Try <u>Bitcoin</u>, <u>Trump</u>, <u>Startup</u>, <u>SpaceX</u>
         </p>
       </div>
+      <DropDown />
       <div className="flex flex-no-wrap">
-        <div className="w-64 absolute sm:relative bg-gray-800 shadow md:h-full flex-col justify-between hidden sm:flex">
-          <div className="px-8">
-            <ul className="mt-12">
-              {[...Array(10)].map((e, i) => (
-                <li className="flex w-full justify-between text-gray-300 hover:text-gray-500 cursor-pointer items-center mb-6">
-                  <div className="flex items-center">
-                    <span className="text-sm  ml-2">Category </span>
-                  </div>
-                  <div className="py-1 px-3 bg-gray-700 rounded text-gray-500 flex items-center justify-center text-xs">
-                    5
-                  </div>
+        <div className=" absolute sm:relative shadow md:h-full flex-col justify-between hidden sm:flex">
+          <main>
+            <section class="category">
+              <h2>Category List</h2>
+              <ul>
+                <li>
+                  National<span>69</span>
                 </li>
-              ))}
-            </ul>
-          </div>
+                <li>
+                  National<span>25</span>
+                </li>
+                <li>
+                  Sports<span>18</span>
+                </li>
+                <li>
+                  Megazine<span>37</span>
+                </li>
+                <li>
+                  Health<span>12</span>
+                </li>
+                <li>
+                  National<span>69</span>
+                </li>
+                <li>
+                  National<span>25</span>
+                </li>
+                <li>
+                  Sports<span>18</span>
+                </li>
+                <li>
+                  Megazine<span>37</span>
+                </li>
+                <li>
+                  Health<span>12</span>
+                </li>
+                <li>
+                  National<span>69</span>
+                </li>
+                <li>
+                  National<span>25</span>
+                </li>
+                <li>
+                  Sports<span>18</span>
+                </li>
+                <li>
+                  Megazine<span>37</span>
+                </li>
+                <li>
+                  Health<span>12</span>
+                </li>
+              </ul>
+            </section>
+          </main>
         </div>
         <section className="main-section">
           {[...Array(9)].map((e, i) => (
