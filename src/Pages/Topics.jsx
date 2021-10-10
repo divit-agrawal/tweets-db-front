@@ -11,22 +11,7 @@ export default function Topics() {
       <SearchBar />
       <div className="eg-search">
         <p>
-          Try{" "}
-          <a>
-            <u>Bitcoin</u>
-          </a>
-          ,{" "}
-          <a>
-            <u>Trump</u>
-          </a>
-          ,{" "}
-          <a>
-            <u>Startup</u>
-          </a>
-          ,{" "}
-          <a>
-            <u>SpaceX</u>
-          </a>
+          Try <u>Bitcoin</u>, <u>Trump</u>, <u>Startup</u>, <u>SpaceX</u>
         </p>
       </div>
       <div className="flex flex-no-wrap">
