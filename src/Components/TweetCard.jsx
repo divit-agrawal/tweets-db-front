@@ -7,7 +7,7 @@ export default function TweetCard() {
       <div class="card">
         <div className="card-head">
           <div className="profile-pic">
-            <img src={"./Kshah.jpg"} />
+            <img src={"./Kshah.jpg"} alt="img" />
           </div>
           <div className="profile-details">
             <div className="profile-name">kunal Shah</div>
@@ -26,7 +26,7 @@ export default function TweetCard() {
           </p>
         </div>
         <div className="card-body-image">
-          <img src={"./card_img.jpg"} />
+          <img src={"./card_img.jpg"} alt="img" />
         </div>
         <div className="card-tail">
           <p>7:17 Am : Oct 9, 2021</p>

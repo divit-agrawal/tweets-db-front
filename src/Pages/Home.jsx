@@ -14,19 +14,19 @@ export default function Home() {
       <div className="eg-search">
         <p>
           Try{" "}
-          <a href="#">
+          <a >
             <u>Bitcoin</u>
           </a>
           ,{" "}
-          <a href="#">
+          <a >
             <u>Trump</u>
           </a>
           ,{" "}
-          <a href="#">
+          <a >
             <u>Startup</u>
           </a>
           ,{" "}
-          <a href="#">
+          <a >
             <u>SpaceX</u>
           </a>
         </p>
