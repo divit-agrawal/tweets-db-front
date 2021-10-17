@@ -1,12 +1,40 @@
-/* This example requires Tailwind CSS v2.0+ */
 import { Fragment, useRef, useState } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import { ExclamationIcon } from "@heroicons/react/outline";
+import axios from "axios";
 
-export default function Example() {
+export default function Example(props) {
   const [open, setOpen] = useState(true);
 
   const cancelButtonRef = useRef(null);
+
+  const handleModalClick = () => {
+    setOpen(false);
+    const link = `https://twitter.com/${props.user_name}/status/${props.tweet_id}`;
+    var apd = {
+      data: link,
+    };
+    const token = localStorage.getItem("token");
+    var axiosConfig = {
+      headers: {
+        "auth-token": token,
+      },
+    };
+    axios
+      .post(
+        "https://tweets-db-backend.herokuapp.com/deleteTweets",
+        apd,
+        axiosConfig
+      )
+      .then((data) => {
+        console.log(data);
+        console.log("Tweet Deleted!");
+        window.location.reload();
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 
   return (
     <Transition.Root show={open} as={Fragment}>
@@ -59,13 +87,12 @@ export default function Example() {
                       as="h3"
                       className="text-lg leading-6 font-medium text-gray-900"
                     >
-                      Deactivate account
+                      Delete Tweet
                     </Dialog.Title>
                     <div className="mt-2">
                       <p className="text-sm text-gray-500">
-                        Are you sure you want to deactivate your account? All of
-                        your data will be permanently removed. This action
-                        cannot be undone.
+                        Are you sure you want to delete this tweet by @
+                        {props.user_name}?
                       </p>
                     </div>
                   </div>
@@ -75,14 +102,17 @@ export default function Example() {
                 <button
                   type="button"
                   className="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-red-600 text-base font-medium text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 sm:ml-3 sm:w-auto sm:text-sm"
-                  onClick={() => setOpen(false)}
+                  onClick={handleModalClick}
                 >
-                  Deactivate
+                  Delete
                 </button>
                 <button
                   type="button"
                   className="mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm"
-                  onClick={() => setOpen(false)}
+                  onClick={() => {
+                    setOpen(false);
+                    props.setOpenModal(false);
+                  }}
                   ref={cancelButtonRef}
                 >
                   Cancel

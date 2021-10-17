@@ -44,6 +44,7 @@ body {
   justify-content: center;
   flex-wrap: wrap;
 }
+/*tweet card */
 .card {
   width: 25vw;
   /* height: var(--cardHeight); */
@@ -90,6 +91,7 @@ body {
 .card-body-text {
   padding: 12px 0px;
 }
+/*hashtag capsule: */
 .capsule {
   width: fit-content;
   margin: 4px 8px;
@@ -102,6 +104,7 @@ body {
 .popular-hashtags {
   padding: 0px 5vw;
 }
+/* footer */
 .footer {
   background-color: black;
   color: #fff;
@@ -126,8 +129,8 @@ body {
   align-items: center;
   padding: 16px;
 }
-/* sidebar */
 
+/* sidebar */
 main {
   width: 20vw;
   /*   min-width: 315px; */
@@ -193,4 +196,15 @@ main .category ul li span {
   border-radius: 4px;
   box-shadow: 0 15px 25px rgba(0, 0, 0, 0.1);
   background: #fff;
+}
+.Trending {
+  display: flex;
+  flex-direction: row;
+}
+.trending-icon {
+  font-size: max(2rem, 3.17vw);
+}
+.trending-text h2 {
+  font-weight: 500;
+  font-size: max(2rem, 3.17vw);
 }

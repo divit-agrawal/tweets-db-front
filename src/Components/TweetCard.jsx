@@ -1,37 +1,71 @@
-import React from "react";
+import React, { useState } from "react";
 import "../index.css";
+import Modal from "./Modal";
+import { Link } from "react-router-dom";
 
-export default function TweetCard() {
+export default function TweetCard(props) {
+  const [openModal, setOpenModal] = useState(false);
+  const handleClick = () => {
+    setOpenModal(true);
+  };
+  
   return (
-    <a href="https://twitter.com/kunalb11/status/1438769770187214854">
-      <div class="card">
-        <div className="card-head">
-          <div className="profile-pic">
-            <img src={"./Kshah.jpg"} alt="img" />
+    <>
+      {openModal ? (
+        <Modal
+          openModal={openModal}
+          setOpenModal={setOpenModal}
+          user_name={props.data.user_name}
+          tweet_id={props.data.tweet_id}
+        />
+      ) : (
+        <></>
+      )}
+      <div className="card">
+        {props.loggedIn ? (
+          <div className="card-head">
+            <div className="profile-pic">
+              <Link
+                to={{
+                  pathname: "/updateTweet",
+                  state: { tweetData: props.data },
+                }}
+              >
+                Edit
+              </Link>
+            </div>
+            <div className="profile-details">
+              <button onClick={handleClick}>Delete</button>
+            </div>
           </div>
-          <div className="profile-details">
-            <div className="profile-name">kunal Shah</div>
-            <div className="profile-tw-id">@kunalb11</div>
+        ) : (
+          <></>
+        )}
+        <a
+          href={`https://twitter.com/${props.data.user_name}/status/${props.data.tweet_id}`}
+          target="_blank"
+          rel="noreferrer"
+        >
+          <div className="card-head">
+            <div className="profile-pic">
+              <img src={props.data.profile_image_url} alt="img" />
+            </div>
+            <div className="profile-details">
+              <div className="profile-name">{props.data.name}</div>
+              <div className="profile-tw-id">@{props.data.user_name}</div>
+            </div>
           </div>
-        </div>
-        <div className="card-body-text">
-          <p>
-            SEO Flowcharts To Support SEO Decision Making: A compilation of my
-            top 10 ones 👀
-            <br /> 🔥 Should you prioritize an SEO Task?
-            <br /> 🔥 What to do when hit by Core Update? <br /> 🔥 Should you
-            prune or optimize a page?
-            <br /> 🔥 Should you migrate a Page to the New Web?
-            <br /> More 👇
-          </p>
-        </div>
-        <div className="card-body-image">
-          <img src={"./card_img.jpg"} alt="img" />
-        </div>
-        <div className="card-tail">
-          <p>7:17 Am : Oct 9, 2021</p>
-        </div>
+          <div className="card-body-text">
+            <p>{props.data.text}</p>
+          </div>
+          <div className="card-body-image">
+            <img src={props.data.image_url} alt="img" />
+          </div>
+          <div className="card-tail">
+            <p>{props.data.created_at}</p>
+          </div>
+        </a>
       </div>
-    </a>
+    </>
   );
 }
