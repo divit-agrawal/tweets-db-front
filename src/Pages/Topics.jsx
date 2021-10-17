@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import SearchBar from "../Components/SearchBar";
 import TweetCard from "../Components/TweetCard";
-import DropDown from "../Components/DropDown";
 import axios from "axios";
 
 const categoryItems = ["All Tweets", "Crypto", "MBA", "Startups", "Life"];

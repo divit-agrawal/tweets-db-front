@@ -16,7 +16,7 @@ export default function SearchBar(props) {
     if (inputText.includes("https://twitter.com/")) console.log("Tweet Link");
     else if (inputText.includes("#")) {
       let arr = inputText.split(" ");
-      var apd = {
+      let apd = {
         tag: arr,
       };
       axios
@@ -31,7 +31,7 @@ export default function SearchBar(props) {
         });
     } else {
       let arr = inputText.split(" ");
-      var apd = {
+      let apd = {
         category: arr,
       };
       // console.log(apd);

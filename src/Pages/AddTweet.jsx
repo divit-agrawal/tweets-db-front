@@ -1,6 +1,5 @@
 import React from "react";
 import axios from "axios";
-import { useHistory } from "react-router";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -18,7 +17,7 @@ const AddTweet = (props) => {
     for (let i = 0; i < catArray.length; i++) {
       catArray[i] = catArray[i].trim();
     }
-    var apd = {
+    var aped = {
       data: tweet_link,
       categories: catArray,
       is_featured: featuring,
@@ -32,7 +31,7 @@ const AddTweet = (props) => {
     axios
       .post(
         "https://tweets-db-backend.herokuapp.com/addTweet",
-        apd,
+        aped,
         axiosConfig
       )
       .then((data) => {
