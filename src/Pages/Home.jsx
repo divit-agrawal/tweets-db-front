@@ -24,10 +24,7 @@ export default function Home(props) {
       });
   }, []);
 
-  useEffect(() => {
-    if (localStorage.getItem("token") != null) props.setLoggedIn(true);
-  }, []);
-  // useEffect(() => {}, [isSearched]);
+  
   return (
     <div className="Home">
       <div>

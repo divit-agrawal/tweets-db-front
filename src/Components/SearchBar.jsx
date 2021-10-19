@@ -13,8 +13,23 @@ export default function SearchBar(props) {
     e.preventDefault();
     let inputText = e.target.elements.search?.value.trim().toString();
     // console.log(inputText);
-    if (inputText.includes("https://twitter.com/")) console.log("Tweet Link");
-    else if (inputText.includes("#")) {
+    if (inputText.includes("https://twitter.com/")) {
+      let apd = {
+        data: inputText,
+      };
+      axios
+        .post("https://tweets-db-backend.herokuapp.com/searchSingleTweet", apd)
+        .then((data) => {
+          // console.log(data);
+          let d = [];
+          d[0] = data.data;
+          props.setSearchResult(d);
+          props.setIsSearched(true);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    } else if (inputText.includes("#")) {
       let arr = inputText.split(" ");
       let apd = {
         tag: arr,

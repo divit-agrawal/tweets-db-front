@@ -46,7 +46,7 @@ body {
 }
 /*tweet card */
 .card {
-  width: 25vw;
+  /* width: 25vw; */
   /* height: var(--cardHeight); */
   margin: var(--cardMargin);
   border: 1px #ccc;
@@ -56,16 +56,37 @@ body {
   display: flex;
   flex-direction: column;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  padding: 40px;
+  padding: 30px;
+}
+@media (min-width: 20rem) {
+  .card {
+    width: 85%;
+  }
+}
+@media (min-width: 40rem) {
+  .card {
+    width: 50%;
+  }
+}
+@media (min-width: 45rem) {
+  .card {
+    width: 35%;
+  }
+}
+@media (min-width: 65rem) {
+  .card {
+    width: 28%;
+  }
 }
 .card:hover {
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+  filter: contrast(100%);
 }
-@media (max-width: 1000px) {
+/* @media (max-width: 1000px) {
   .card {
     width: var(--cardWidth);
   }
-}
+} */
 .card-head {
   display: flex;
   flex-direction: row;

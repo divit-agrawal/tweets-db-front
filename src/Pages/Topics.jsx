@@ -14,7 +14,7 @@ export default function Topics(props) {
     if (e === "All Tweets") {
       // console.log("All tweets");
       axios
-        .get("https://tweets-db-backend.herokuapp.com/getAllTweets")
+        .get("https://tweets-db-backend.herokuapp.com/getAllTweets?limit=9")
         .then((data) => {
           // console.log(data);
           setTweetList(data.data);
@@ -23,22 +23,22 @@ export default function Topics(props) {
           console.log(err);
         });
     } else {
-      if (e.target.innerHTML.trim() === "All Tweets") {
+      let val;
+      if (window.innerWidth > 768) val = e.target.innerHTML.trim();
+      else val = e.target.value.trim();
+      console.log(val);
+      if (val === "All Tweets") {
         axios
-          .get("https://tweets-db-backend.herokuapp.com/getAllTweets")
+          .get("https://tweets-db-backend.herokuapp.com/getAllTweets?limit=9")
           .then((data) => {
-            // console.log(data);
+            console.log(data);
             setTweetList(data.data);
           })
           .catch((err) => {
             console.log(err);
           });
       } else {
-        const cat = e.target.innerHTML
-          .toString()
-          .toLowerCase()
-          .trim()
-          .split(" ");
+        const cat = val.toString().toLowerCase().trim().split(" ");
         var apd = { category: cat };
         axios
           .post(
@@ -77,8 +77,12 @@ export default function Topics(props) {
         </p>
       </div>
 
-      <div className="flex flex-no-wrap">
-        {window.innerWidth > 800 ? (
+      <div
+        className={`flex flex-no-wrap ${
+          window.innerWidth > 768 ? "" : "flex-col"
+        }`}
+      >
+        {window.innerWidth > 768 ? (
           <div className=" absolute sm:relative shadow md:h-full flex-col justify-between hidden sm:flex">
             <main>
               <section className="category">
@@ -94,27 +98,13 @@ export default function Topics(props) {
             </main>
           </div>
         ) : (
-          // <section className="dropdown">
-          //   <select className="selectColor">
-          //     {categoryItems.map((number) => (
-          //       <option>{number}</option>
-          //     ))}
-          //   </select>
-          // </section>
-          <div className=" absolute sm:relative shadow md:h-full flex-col justify-between hidden sm:flex">
-            <main>
-              <section className="category">
-                <h2>Category List</h2>
-                <ul>
-                  {categoryItems.map((number) => (
-                    <li key={number.toString()} onClick={handleListItemClick}>
-                      {number}
-                    </li>
-                  ))}
-                </ul>
-              </section>
-            </main>
-          </div>
+          <section className="dropdown">
+            <select className="selectColor" onChange={handleListItemClick}>
+              {categoryItems.map((number) => (
+                <option>{number}</option>
+              ))}
+            </select>
+          </section>
         )}
 
         <section className="main-section">
