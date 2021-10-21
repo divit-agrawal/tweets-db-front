@@ -26,7 +26,7 @@ const UpdateTweet = () => {
       categories: catArray,
       is_featured: featuring,
     };
-    console.log(apd);
+    // console.log(apd);
     const token = localStorage.getItem("token");
     var axiosConfig = {
       headers: {

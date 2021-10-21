@@ -42,6 +42,7 @@ export default function Navbar(props) {
     if (location.pathname === "/") setNavigation(nav1);
     else if (location.pathname === "/topics") setNavigation(nav2);
     else if (location.pathname === "/addTweet") setNavigation(nav3);
+    else if (location.pathname === "/addCategory") setNavigation(nav3);
   }, [location]);
 
   // useEffect(() => {}, [props.loggedIn]);
@@ -95,18 +96,32 @@ export default function Navbar(props) {
                         </Link>
                       ))}
                       {props.loggedIn ? (
-                        <Link
-                          key="addTweet"
-                          to="/addTweet"
-                          className={classNames(
-                            location.pathname === "/addTweet"
-                              ? "bg-blue-500 text-white "
-                              : "text-black hover:bg-blue-200",
-                            "px-3 py-2 rounded-md text-sm font-medium"
-                          )}
-                        >
-                          Add Tweet
-                        </Link>
+                        <>
+                          <Link
+                            key="addTweet"
+                            to="/addTweet"
+                            className={classNames(
+                              location.pathname === "/addTweet"
+                                ? "bg-blue-500 text-white "
+                                : "text-black hover:bg-blue-200",
+                              "px-3 py-2 rounded-md text-sm font-medium"
+                            )}
+                          >
+                            Add Tweet
+                          </Link>
+                          <Link
+                            key="addCategory"
+                            to="/addCategory"
+                            className={classNames(
+                              location.pathname === "/addCategory"
+                                ? "bg-blue-500 text-white "
+                                : "text-black hover:bg-blue-200",
+                              "px-3 py-2 rounded-md text-sm font-medium"
+                            )}
+                          >
+                            Add Category
+                          </Link>
+                        </>
                       ) : (
                         <></>
                       )}
@@ -235,18 +250,32 @@ export default function Navbar(props) {
                   </Link>
                 ))}
                 {props.loggedIn ? (
-                  <Link
-                    key="addTweet"
-                    to="/addTweet"
-                    className={classNames(
-                      location.pathname === "/addTweet"
-                        ? "bg-blue-500 text-white "
-                        : "text-black hover:bg-blue-200",
-                      "px-3 py-2 rounded-md text-sm font-medium"
-                    )}
-                  >
-                    Add Tweet
-                  </Link>
+                  <>
+                    <Link
+                      key="addTweet"
+                      to="/addTweet"
+                      className={classNames(
+                        location.pathname === "/addTweet"
+                          ? "bg-blue-500 text-white "
+                          : "text-black hover:bg-blue-200",
+                        "block px-3 py-2 rounded-md text-base font-medium"
+                      )}
+                    >
+                      Add Tweet
+                    </Link>
+                    <Link
+                      key="addCategory"
+                      to="/addCategory"
+                      className={classNames(
+                        location.pathname === "/addCategory"
+                          ? "bg-blue-500 text-white "
+                          : "text-black hover:bg-blue-200",
+                        "block px-3 py-2 rounded-md text-base font-medium"
+                      )}
+                    >
+                      Add Category
+                    </Link>
+                  </>
                 ) : (
                   <></>
                 )}

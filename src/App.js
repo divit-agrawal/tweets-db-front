@@ -6,6 +6,7 @@ import Login from "./Pages/Login";
 import AddTweet from "./Pages/AddTweet";
 import UpdateTweet from "./Pages/UpdateTweet";
 import Footer from "./Components/Footer";
+import AddCategory from "./Pages/AddCategory";
 // import Modal from "./Components/Modal";
 import "./App.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
@@ -55,6 +56,7 @@ function App() {
             )}
           />
           <Route path="/addTweet" component={AddTweet} />
+          <Route path="/addCategory" component={AddCategory} />
           <Route path="/updateTweet" component={UpdateTweet} />
           <Route path="/*" component={Home} />
         </Switch>

@@ -12,7 +12,7 @@ body {
   flex-direction: column;
 }
 .head {
-  padding-top: 10vw;
+  padding-top: 30vh;
   font-weight: 500;
   font-size: max(2.75rem, 4.17vw);
   text-align: center;
@@ -181,14 +181,14 @@ main section ul {
 
 main .category ul li {
   position: relative;
-  padding-bottom: 22px;
+  /* padding-bottom: 22px; */
   font-weight: 600;
-  color: #555;
+  /* color: #555; */
 }
 
-main .category ul li:not(:last-child) {
+/* main .category ul li:not(:last-child) {
   border-bottom: 1px solid #000;
-}
+} */
 
 main .category ul li span {
   width: 35px;
@@ -228,4 +228,11 @@ main .category ul li span {
 .trending-text h2 {
   font-weight: 500;
   font-size: max(2rem, 3.17vw);
+}
+.bg {
+  height: 95vh;
+  background-image: url("./Assets/bg.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }

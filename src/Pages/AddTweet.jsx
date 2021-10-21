@@ -1,27 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
 import axios from "axios";
+import AddTweetCategory from "../Components/AddTweetCategory";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
 const AddTweet = (props) => {
+  const [tweetCategory, setTweetCategory] = useState([]);
   const handleFormSubmit = (e) => {
     e.preventDefault();
 
     let tweet_link = e.target.elements.tweet_link?.value.trim();
-    let categories = e.target.elements.categories?.value;
-    let featuring = e.target.elements.featuring?.value;
-    var catArray = categories.split(",");
-    //removing spaces in categories
-    for (let i = 0; i < catArray.length; i++) {
-      catArray[i] = catArray[i].trim();
-    }
-    var aped = {
+    // console.log(tweetCategory);
+    let aped = {
       data: tweet_link,
-      categories: catArray,
-      is_featured: featuring,
+      categories: tweetCategory,
     };
+    console.log(aped);
     const token = localStorage.getItem("token");
     var axiosConfig = {
       headers: {
@@ -55,51 +51,34 @@ const AddTweet = (props) => {
               type="url"
               className={`w-full p-2 text-primary border rounded-md outline-none text-sm transition duration-150 ease-in-out mb-4`}
               id="tweet_link"
-              placeholder="Tweet URL" required
+              placeholder="Tweet URL"
+              required
             />
           </div>
           <div>
             <label htmlFor="categories">
-              Categories (add commas' if multiple)
+              Categories
+              <br />
             </label>
-            <input
-              type="text"
-              className={`w-full p-2 text-primary border rounded-md outline-none text-sm transition duration-150 ease-in-out mb-4`}
-              id="categories"
-              placeholder="startups, mental health" required
-            />
-          </div>
-          <div>
-            <label htmlFor="isFeatured">Featuring</label>
-            <br />
-            <input
-              type="radio"
-              className={` p-2 text-primary border rounded-md outline-none text-sm transition duration-150 ease-in-out mb-4`}
-              id="featuring"
-              name="isFeatured"
-              value="true" required
-            />
-            <label
-              className={` p-2 text-primary outline-none text-sm transition duration-150 ease-in-out mb-4`}
-              htmlFor="featuring"
+            {tweetCategory.map((e, i) => {
+              return (
+                <AddTweetCategory
+                  item={e}
+                  index={i}
+                  setTweetCategory={setTweetCategory}
+                />
+              );
+            })}
+            <button
+              onClick={() => {
+                setTweetCategory((prev) => [...prev, { name: "", order: 0 }]);
+              }}
+              className={classNames(
+                "bg-blue-500 text-white hover:bg-blue-200 px-3 py-2 rounded-md text-sm font-medium"
+              )}
             >
-              On
-            </label>
-            <br />
-            <input
-              type="radio"
-              className={` p-2 text-primary border rounded-md outline-none text-sm transition duration-150 ease-in-out mb-4`}
-              id="featuring"
-              name="isFeatured"
-              value="false"
-            />
-            <label
-              className={` p-2 text-primary outline-none text-sm transition duration-150 ease-in-out mb-4`}
-              htmlFor="featuring"
-            >
-              Off
-            </label>
-            <br />
+              Add Category
+            </button>
           </div>
           <div className="flex justify-center items-center mt-6">
             <button

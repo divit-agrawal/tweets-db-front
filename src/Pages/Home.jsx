@@ -24,22 +24,23 @@ export default function Home(props) {
       });
   }, []);
 
-  
   return (
     <div className="Home">
-      <div>
-        <h1 className="head">Discover Best Tweets</h1>
-      </div>
-      <SearchBar
-        isSearched={isSearched}
-        setIsSearched={setIsSearched}
-        searchResult={searchResult}
-        setSearchResult={setSearchResult}
-      />
-      <div className="eg-search">
-        <p>
-          Try <u>Bitcoin</u>, <u>Trump</u>, <u>Startup</u>, <u>SpaceX</u>
-        </p>
+      <div className="bg">
+        <div>
+          <h1 className="head">Discover Best Tweets</h1>
+        </div>
+        <SearchBar
+          isSearched={isSearched}
+          setIsSearched={setIsSearched}
+          searchResult={searchResult}
+          setSearchResult={setSearchResult}
+        />
+        <div className="eg-search">
+          <p>
+            Try <u>Bitcoin</u>, <u>Trump</u>, <u>Startup</u>, <u>SpaceX</u>
+          </p>
+        </div>
       </div>
 
       {!isSearched ? (
@@ -63,7 +64,7 @@ export default function Home(props) {
             </div>
           </div> */}
           <div className="trending-text">
-            <h2>Trending</h2>
+            <h2 className="text-center text-3xl py-4">Trending</h2>
           </div>
           <section className="main-section">
             {trending.map((e, i) => (
