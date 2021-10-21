@@ -5,6 +5,11 @@
 
 body {
   font-family: SemiBold, sans-serif;
+  background-image: url("./Assets/bg.png");
+  background-position: center fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
 }
 .Home {
   display: flex;
@@ -104,7 +109,10 @@ body {
   padding: 0px 8px;
 }
 .profile-name {
+  overflow: hidden;
   height: 25px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 .profile-tw-id {
   height: 15px;
@@ -181,9 +189,13 @@ main section ul {
 
 main .category ul li {
   position: relative;
+
   /* padding-bottom: 22px; */
   font-weight: 600;
   /* color: #555; */
+}
+main {
+  background-color: #fff;
 }
 
 /* main .category ul li:not(:last-child) {
@@ -231,8 +243,6 @@ main .category ul li span {
 }
 .bg {
   height: 95vh;
-  background-image: url("./Assets/bg.png");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+
+  /* position: fixed; */
 }

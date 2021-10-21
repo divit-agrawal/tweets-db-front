@@ -125,10 +125,12 @@ export default function Topics(props) {
               <section className="category">
                 <h2>Category List</h2>
                 <ul className="">
-                  <div className="flex flex-row hover:bg-blue-500 rounded-md hover:text-white px-3 py-3">
+                  <div
+                    key={"allTweets"}
+                    className="flex flex-row hover:bg-blue-500 rounded-md hover:text-white px-3 py-3"
+                  >
                     <li
                       className="w-full cursor-pointer justify-start"
-                      key={"allTweets"}
                       onClick={handleListItemClick}
                     >
                       All Tweets
@@ -139,10 +141,12 @@ export default function Topics(props) {
                   {/* normal-case text-center justify-items-center items-center
                   hover:bg-blue-400 rounded-md hover:text-white */}
                   {categoryItems.map((number) => (
-                    <div className="flex flex-row hover:bg-blue-500 rounded-md hover:text-white px-3 py-3">
+                    <div
+                      key={number.name.toString()}
+                      className="flex flex-row hover:bg-blue-500 rounded-md hover:text-white px-3 py-3"
+                    >
                       <li
                         className="w-full cursor-pointer justify-start"
-                        key={number.name.toString()}
                         onClick={handleListItemClick}
                       >
                         {number.name}
